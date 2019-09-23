@@ -1,0 +1,93 @@
+package com.bridgelab.project.controller;
+
+import java.util.List;
+
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bridgelab.project.dto.EmployeeDto;
+import com.bridgelab.project.dto.Resetpassword;
+import com.bridgelab.project.exception.ErrorResponse;
+import com.bridgelab.project.model.LoginEmployee;
+import com.bridgelab.project.service.EmployeeService;
+
+@RestController
+@RequestMapping("/ctrl")
+public class ProjectController {
+	Logger logger = Logger.getLogger(this.getClass());
+	@Autowired
+	EmployeeService employeeService;
+
+	@GetMapping("/get")
+	public List<EmployeeDto> getDetails() {
+		return employeeService.retriveEmployeeFromdatabase();
+
+	}
+
+	@PostMapping("/employee")
+	public ResponseEntity<ErrorResponse> saveToDatabase(@RequestBody EmployeeDto employeeDetails) {
+		if (employeeService.saveToDatabase(employeeDetails) > 0)
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+		else
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
+					HttpStatus.BAD_REQUEST);
+	}
+
+	@PostMapping("/forgetpassword/{email}")
+	public ResponseEntity<ErrorResponse> forgetpassword(@PathVariable("email") String email,
+			@RequestBody Resetpassword employeeDetails) {
+		if (employeeService.isEmployeeAvailable(email)) {
+			employeeService.forgetpassword(email);
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+		} else
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
+					HttpStatus.BAD_REQUEST);
+	}
+
+	@GetMapping("/verify/{token}")
+	public ResponseEntity<ErrorResponse> employrrverification(@PathVariable("token") String token) {
+		if (employeeService.verifyEmployee(token)) {
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+		} else
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
+					HttpStatus.BAD_REQUEST);
+	}
+
+	@PostMapping("/login")
+	public ResponseEntity<ErrorResponse> login(@RequestBody LoginEmployee loginEmployee) {
+		System.out.println(loginEmployee.getEmail());
+		System.out.println(loginEmployee.getPassword());
+		if (employeeService.dologin(loginEmployee)) {
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+		} else
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
+					HttpStatus.BAD_REQUEST);
+	}
+
+	@DeleteMapping("/deleteEmployee/{id}")
+	public ResponseEntity<ErrorResponse> deleteEmployeeById(@PathVariable("id") Integer id) {
+		if (employeeService.deleteFromDatabase(id)) {
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+		} else
+			return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
+					HttpStatus.BAD_REQUEST);
+	}
+
+	@PutMapping("updateemployee/{token}")
+	public ResponseEntity<ErrorResponse> updateEmployee(@PathVariable("token") String token,
+			@RequestBody Resetpassword employeeDetails) {
+		employeeService.updateEmployee(token, employeeDetails);
+		return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+	}
+
+}
