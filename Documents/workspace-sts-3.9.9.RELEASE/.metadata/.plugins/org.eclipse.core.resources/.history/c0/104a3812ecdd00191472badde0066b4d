@@ -1,0 +1,8 @@
+package com.bridgelab.project.dto;
+
+import lombok.Data;
+
+@Data
+public class Resetpassword {
+  private String password;
+}

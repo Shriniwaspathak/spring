@@ -1,0 +1,17 @@
+package com.bridgelab.project.dto;
+
+import lombok.Data;
+
+@Data
+public class EmployeeDto {
+	
+	public EmployeeDto() {
+	}
+
+	private String firstName;
+	private String mobileNo;
+	private String email;
+	private String password;
+
+
+}

@@ -1,0 +1,5 @@
+package com.bridgelab.project.swaggerconfig;
+
+public class SwagerConfig {
+
+}

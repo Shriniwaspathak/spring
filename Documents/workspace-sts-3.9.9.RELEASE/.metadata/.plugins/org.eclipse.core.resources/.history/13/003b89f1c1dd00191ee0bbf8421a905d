@@ -1,0 +1,6 @@
+package com.bridgelab.project.config;
+
+@ConfigurationApp
+public class ConfigurationApp {
+      
+}
