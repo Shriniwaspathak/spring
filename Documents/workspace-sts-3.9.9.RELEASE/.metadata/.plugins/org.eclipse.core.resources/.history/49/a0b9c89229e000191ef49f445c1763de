@@ -1,0 +1,53 @@
+package com.bridgelab.fundunotes.service;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bridgelab.fundunotes.dto.NoteDto;
+import com.bridgelab.fundunotes.model.Note;
+import com.bridgelab.fundunotes.repository.NoteServiceRepositoty;
+import com.bridgelab.fundunotes.util.TokenGeneration;
+
+@Service
+public class NoteServiceImpl implements NoteService {
+	@Autowired
+	private TokenGeneration tokens;
+	@Autowired
+	private NoteServiceRepositoty noteDao;
+	@Autowired
+	private ModelMapper modelmapper;
+
+	@Override
+	public int noteCreation(NoteDto noteDto, Integer id) {
+		System.out.println("inside service");
+		Note note = modelmapper.map(noteDto, Note.class);
+		note.setNoteId(id);
+		Date date = new Date();
+		String strDateFormat = "hh:mm:ss a";
+		DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+		String formattedDate = dateFormat.format(date);
+		note.setTime(formattedDate);
+		int check = noteDao.noteCreateInDatabase(note);
+		return 1;
+
+	}
+
+	@Override
+	public boolean noteDeletion(Integer id) {
+		return (noteDao.deleteNoteFromDatabase(id)) ? true : false;
+
+	}
+
+	@Override
+	public int noteUpdatation(String token, NoteDto noteDto) {
+		Integer result = tokens.parseToken(token);
+		Note note = modelmapper.map(noteDto, Note.class);
+		return noteDao.updateNoteInDatabase(result);
+	}
+
+}

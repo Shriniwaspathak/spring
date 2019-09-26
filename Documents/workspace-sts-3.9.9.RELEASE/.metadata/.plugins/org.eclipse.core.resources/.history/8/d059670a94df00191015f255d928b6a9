@@ -1,0 +1,31 @@
+package com.bridgelab.fundunotes.service;
+
+import java.util.List;
+
+import javax.mail.MessagingException;
+
+import com.bridgelab.fundunotes.dto.UserDto;
+import com.bridgelab.fundunotes.dto.UserLogin;
+import com.bridgelab.fundunotes.model.UserRegistration;
+import com.bridgelab.fundunotes.dto.Resetpassword;
+
+public interface UserService {
+	public List<UserRegistration> retriveUserFromdatabase();
+
+	public boolean deleteFromDatabase(Integer id);
+
+	public int saveToDatabase(UserDto loginDetails) throws MessagingException ;
+
+	public boolean verifyUser(String token);
+
+	public boolean dologin(UserLogin userlogin);
+
+	public boolean isUserAvailable(String  token);
+
+	public boolean forgetpassword(String email) throws MessagingException;
+
+	public void sendEmail(String url, String generatedToken) throws MessagingException;
+
+	public int updateUser(String token, Resetpassword resetPassword);
+	
+}

@@ -1,0 +1,51 @@
+package com.bridgelab.fundunotes.repository;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.bridgelab.fundunotes.model.Note;
+
+@Repository
+public class NoteServiceRepositoty {
+	
+	private EntityManager entitymanager;
+	
+	@Autowired
+	public void setEntitymanager(EntityManager entitymanager) {
+		this.entitymanager = entitymanager;
+	}
+
+	@Transactional
+	public boolean deleteNoteFromDatabase(Integer id) {
+		Session session = entitymanager.unwrap(Session.class);
+		String hql = "from Note where id=:id";
+		Query query = session.createQuery(" delete from Note where id='" + id + "'");
+		return (query.executeUpdate() > 0) ? true : false;
+
+	}
+
+	@Transactional
+	public boolean noteCreateInDatabase(Note note) {
+		System.out.println("inside repository");
+		Session session = entitymanager.unwrap(Session.class);
+		session.save(note);
+		System.out.println("done");
+		return true;
+
+	}
+
+	@Transactional
+	public int updateNoteInDatabase(Integer id) {
+		Session session = entitymanager.unwrap(Session.class);
+		String query = "UPDATE Note Set Id=:id";
+		Query query1 = session.createQuery(query);
+		query1.executeUpdate();
+		return 1;
+
+	}
+}

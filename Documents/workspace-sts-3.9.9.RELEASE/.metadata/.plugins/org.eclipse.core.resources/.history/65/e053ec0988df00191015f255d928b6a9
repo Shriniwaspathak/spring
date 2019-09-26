@@ -1,0 +1,5 @@
+package com.bridgelab.fundunotes.service;
+
+public interface NoteService {
+
+}

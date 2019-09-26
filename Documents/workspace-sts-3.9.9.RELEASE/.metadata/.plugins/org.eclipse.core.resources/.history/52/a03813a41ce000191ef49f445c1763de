@@ -1,0 +1,36 @@
+package com.bridgelab.fundunotes.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.stereotype.Repository;
+
+import com.bridgelab.fundunotes.model.Note;
+
+@Repository
+public class NoteServiceRepositoty {
+	private EntityManager entitymanager;
+
+	@Transactional
+	public boolean deleteNoteFromDatabase(Integer id) {
+		Session session=entitymanager.unwrap(Session.class);
+		String hql = "from Note where id=:id";
+		Query query=session.createQuery(" delete from Note where id='"+id+"'");
+		return (query.executeUpdate()>0)?true:false;
+		
+	}
+
+	public int noteCreateInDatabase(Note note) {
+		return 0;
+
+	}
+
+	public int updateNoteInDatabase(Integer id) {
+		return id;
+
+	}
+}

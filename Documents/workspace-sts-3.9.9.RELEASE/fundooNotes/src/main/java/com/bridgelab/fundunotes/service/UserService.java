@@ -20,12 +20,13 @@ public interface UserService {
 
 	public boolean dologin(UserLogin userlogin);
 
-	public boolean isUserAvailable(String email);
+	public boolean isUserAvailable(Integer id);
 
-	public boolean forgetpassword(String email) throws MessagingException;
+	public boolean forgetpassword(Integer id) throws MessagingException;
 
 	public void sendEmail(String url, String generatedToken) throws MessagingException;
 
 	public int updateUser(String token, Resetpassword resetPassword);
+
 	
 }

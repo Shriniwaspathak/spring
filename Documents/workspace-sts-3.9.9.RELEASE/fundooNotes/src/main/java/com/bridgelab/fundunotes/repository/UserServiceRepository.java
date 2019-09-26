@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -18,6 +18,7 @@ import com.bridgelab.fundunotes.model.UserRegistration;
 @Repository
 public class UserServiceRepository {
 	private Logger logger = Logger.getLogger(this.getClass());
+
 	private EntityManager entityManager;
 
 	@Autowired
@@ -37,22 +38,23 @@ public class UserServiceRepository {
 	}
 
 	@Transactional
-	public boolean isvaliduser(String email) {
+	public boolean isvaliduser(Integer id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		@SuppressWarnings("unchecked")
-		List<UserRegistration> result = currentSession.createQuery("from UserRegistration where email='" + email + "'")
+		List<UserRegistration> result = currentSession.createQuery("from UserRegistration where id='" + id + "'")
 				.list();
 
 		return (result.size() > 0) ? true : false;
 	}
 
 	@Transactional
-	public void changeStatus(String email) {
+	public void changeStatus(int id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		String status = "true";
-		currentSession
-				.createQuery("update UserRegistration set activeStatus='" + status + "'where email='" + email + "'")
-				.executeUpdate();
+		Query query = currentSession
+				.createQuery("Update UserRegistration set activeStatus='" + status + "'where id='" + id + "'");
+		
+		query.executeUpdate();
 
 	}
 
@@ -77,7 +79,8 @@ public class UserServiceRepository {
 	@Transactional
 	public int setTodatabase(UserRegistration userRegistration) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		if (!isvaliduser(userRegistration.getEmail())) {
+		System.out.println("userRegistration.getId()" + userRegistration.getUserid());
+		if (!isvaliduser(userRegistration.getUserid())) {
 			currentSession.save(userRegistration);
 			return 1;
 		}
@@ -85,24 +88,39 @@ public class UserServiceRepository {
 	}
 
 	@Transactional
-	public int updatepassword(String email, UserRegistration userdetails) {
+	public int updatepassword(Integer id, String password) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		return currentSession.createQuery("from UserRegistration set password='" + userdetails.getPassword()
-				+ "' where email='" + userdetails.getEmail() + "'").executeUpdate();
-
+		String query = "UPDATE UserRegistration SET Password = '" + password + "' WHERE email = '" + id + "'";
+		Query query1 = currentSession.createQuery(query);
+		query1.executeUpdate();
+		return 1;
 	}
 
 	@Transactional
-	public List<UserRegistration> checkUser(String email) {
-		boolean activeStatus=true;
+	public List<UserRegistration> checkUser(Integer id) {
+		boolean activeStatus = true;
 		List<UserRegistration> result = new ArrayList<UserRegistration>();
 		Session currentSession = entityManager.unwrap(Session.class);
-		if (isvaliduser(email)) {
-			result = currentSession
-					.createQuery(
-							"from UserRegistration where activeStatus='"+activeStatus+"'")
+		if (isvaliduser(id)) {
+			result = currentSession.createQuery("from UserRegistration where activeStatus='" + activeStatus + "'")
 					.getResultList();
 		}
 		return result;
+	}
+
+	@Transactional
+	public UserRegistration findbyId(Integer id) {
+		Session currentsession = entityManager.unwrap(Session.class);
+		Query query = currentsession.createQuery("from UserRegistration where id=:id");
+		query.setParameter("id", id);
+		return (UserRegistration) query.uniqueResult();
+	}
+
+	@Transactional
+	public UserRegistration getid(String email) {
+		Session currentsession = entityManager.unwrap(Session.class);
+		Query query = currentsession.createQuery("from UserRegistration where email=:email");
+		query.setParameter("email", email);
+		return (UserRegistration) query.uniqueResult();
 	}
 }

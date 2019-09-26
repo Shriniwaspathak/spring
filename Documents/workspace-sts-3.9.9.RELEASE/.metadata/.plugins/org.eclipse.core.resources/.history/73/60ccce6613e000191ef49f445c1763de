@@ -1,0 +1,40 @@
+package com.bridgelab.fundunotes.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bridgelab.fundunotes.dto.NoteDto;
+import com.bridgelab.fundunotes.model.Note;
+import com.bridgelab.fundunotes.repository.NoteServiceRepositoty;
+import com.bridgelab.fundunotes.util.TokenGeneration;
+@Service
+public class NoteServiceImpl implements NoteService{
+       @Autowired
+       private TokenGeneration tokens;
+       @Autowired
+       private NoteServiceRepositoty noteDao;
+       
+	@Override
+	public int noteCreation(NoteDto noteDto) {
+		String token=tokens.generateToken(email)
+	   Note note=
+			
+		
+		return 0;
+	}
+
+	@Override
+	public int noteDeletion(Integer id) {
+		return noteDao.deleteNoteFromDatabase(id);
+		
+	}
+
+	@Override
+	public int noteUpdatation(String token, NoteDto noteDto) {
+		String 
+		return 0;
+	}
+
+}

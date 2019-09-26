@@ -1,18 +1,21 @@
 package com.bridgelab.fundunotes.util;
 
+import org.springframework.stereotype.Component;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-
+@Component
 public class TokenGeneration {
 	private final String secret = "shriniwas";
 
-	public String generateToken(String email) {
-		return JWT.create().withClaim("email", email).sign(Algorithm.HMAC512(secret));
+	public String generateToken(int id) {
+		System.out.println(JWT.create().withClaim("userid",id).sign(Algorithm.HMAC512(secret)));
+		return JWT.create().withClaim("userid",id).sign(Algorithm.HMAC512(secret));
 	}
 
-	public String parseToken(String token) {
-		return JWT.require(Algorithm.HMAC512(secret)).build().verify(token).getClaim("email").asString();
-
+	public int parseToken(String token) {
+	  System.out.println(JWT.require(Algorithm.HMAC512(secret)).build().verify(token).getClaim("userid").asInt());
+		int userid= JWT.require(Algorithm.HMAC512(secret)).build().verify(token).getClaim("userid").asInt();
+      return userid;
 	}
-
 }

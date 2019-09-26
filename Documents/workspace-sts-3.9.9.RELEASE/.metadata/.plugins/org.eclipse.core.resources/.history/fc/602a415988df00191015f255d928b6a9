@@ -1,0 +1,7 @@
+package com.bridgelab.fundunotes.service;
+
+public interface NoteService {
+	public  int noteCreation();
+	public boolean noteDeletion();
+	public int noteUpdatation();
+}

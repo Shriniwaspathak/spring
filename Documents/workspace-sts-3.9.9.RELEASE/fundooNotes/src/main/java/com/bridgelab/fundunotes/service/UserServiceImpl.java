@@ -42,37 +42,40 @@ public class UserServiceImpl implements UserService {
 	public List<UserRegistration> retriveUserFromdatabase() {
 		List<UserDto> user = new ArrayList<UserDto>();
 		List<UserRegistration> details = new ArrayList<UserRegistration>();
-		details=userdao.retriveUserDetails();
+		details = userdao.retriveUserDetails();
 		return details;
 	}
 
 	@Override
 	public boolean deleteFromDatabase(Integer id) {
-		return userdao.deleteFromdatabase(id);
+		return (userdao.deleteFromdatabase(id)) ? true : false;
 
 	}
 
 	@Override
 	public int saveToDatabase(UserDto userDetails) throws MessagingException {
 		String password = userDetails.getPassword();
-		userDetails.setPassword(hashpassword(password));
-		String url = "http://localhost:8080/user/verify/";
-		String token = tokens.generateToken(userDetails.getEmail());
 		UserRegistration register = modelmapper.map(userDetails, UserRegistration.class);
+		String url = "http://localhost:8080/user/verify/";
 		register.setMobileno(userDetails.getMobileNo());
 		int check = userdao.setTodatabase(register);
 		if (check > 0) {
-			sendEmail(url, token);
-		}
+			UserRegistration userinfo = userdao.getid(userDetails.getEmail());
 
-		return 1;
+			String token = tokens.generateToken(userinfo.getUserid());
+			System.out.println(userinfo.getUserid());
+			userDetails.setPassword(hashpassword(password));
+			sendEmail(url, token);
+			return 1;
+		}
+		return 0;
 	}
 
 	@Override
 	public boolean verifyUser(String token) {
-		String email = tokens.parseToken(token);
-		if (userdao.isvaliduser(email)) {
-			userdao.changeStatus(email);
+		int id = tokens.parseToken(token);
+		if (userdao.isvaliduser(id)) {
+			userdao.changeStatus(id);
 			return true;
 		}
 		return false;
@@ -82,9 +85,10 @@ public class UserServiceImpl implements UserService {
 	public boolean dologin(UserLogin loginUser) {
 
 		UserRegistration register = modelmapper.map(loginUser, UserRegistration.class);
-		List<UserRegistration> registration = userdao.checkUser(register.getEmail());
+		List<UserRegistration> registration = userdao.checkUser(register.getUserid());
 		for (UserRegistration registera : registration) {
-			if (registera.getEmail().equals(loginUser.getEmail())&&(bcryptEncoder.checkpw(loginUser.getPassword(), registera.getPassword()))) {
+			if (registera.getEmail().equals(loginUser.getEmail())
+					&& (bcryptEncoder.checkpw(loginUser.getPassword(), registera.getPassword()))) {
 				return true;
 			}
 		}
@@ -92,14 +96,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean isUserAvailable(String email) {
+	public boolean isUserAvailable(Integer id) {
 
-		return userdao.isvaliduser(email);
+		return userdao.isvaliduser(id);
+
 	}
 
 	@Override
-	public boolean forgetpassword(String email) throws MessagingException {
-		String genetaredToken = tokens.generateToken(email);
+	public boolean forgetpassword(Integer id) throws MessagingException {
+		String genetaredToken = tokens.generateToken(id);
 		String url = "";
 		sendEmail(url, genetaredToken);
 
@@ -111,6 +116,7 @@ public class UserServiceImpl implements UserService {
 		MimeMessage message = emailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
 		helper.setTo("rishuparasar5@gmail.com");
+
 		helper.setSubject("hiii");
 		helper.setText(url + generatedToken);
 		emailSender.send(message);
@@ -118,11 +124,10 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int updateUser(String token, Resetpassword resetPassword) {
-		String email = tokens.parseToken(token);
+		Integer result = tokens.parseToken(token);
 		String encodepassword = hashpassword(resetPassword.getPassword());
-		resetPassword.setPassword(encodepassword);
 		UserRegistration reset = modelmapper.map(resetPassword, UserRegistration.class);
-		return userdao.updatepassword(email, reset);
+		return userdao.updatepassword(result, encodepassword);
 	}
 
 }

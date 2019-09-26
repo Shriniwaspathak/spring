@@ -1,0 +1,13 @@
+package com.bridgelab.fundunotes.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class NoteServiceRepositoty {
+
+	
+	
+	public int deleteNoteFromdatabase(Integer id) {
+		
+	}
+}

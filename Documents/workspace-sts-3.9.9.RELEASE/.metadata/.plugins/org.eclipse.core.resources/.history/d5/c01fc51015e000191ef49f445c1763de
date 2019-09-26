@@ -1,0 +1,9 @@
+package com.bridgelab.fundunotes.service;
+
+import com.bridgelab.fundunotes.dto.NoteDto;
+
+public interface NoteService {
+	public  int noteCreation(NoteDto noteDto);
+	public int noteDeletion(Integer id);
+	public int noteUpdatation(String token,NoteDto noteDto);
+}

@@ -1,0 +1,21 @@
+package com.bridgelab.fundunotes.controller;
+
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bridgelab.fundunotes.service.NoteService;
+
+@RestController
+@RequestMapping("/note")
+public class NoteController {
+	Logger logger=Logger.getLogger(this.getClass());
+     @Autowired
+     NoteService noteService;
+     
+     @GetMapping("/get")
+     public List<>
+     
+}
