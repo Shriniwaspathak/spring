@@ -9,7 +9,6 @@ public class TokenGeneration {
 	private final String secret = "shriniwas";
 
 	public String generateToken(int id) {
-		System.out.println(JWT.create().withClaim("userid",id).sign(Algorithm.HMAC512(secret)));
 		return JWT.create().withClaim("userid",id).sign(Algorithm.HMAC512(secret));
 	}
 

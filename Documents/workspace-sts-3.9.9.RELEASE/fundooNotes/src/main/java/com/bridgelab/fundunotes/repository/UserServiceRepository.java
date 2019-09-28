@@ -17,14 +17,10 @@ import com.bridgelab.fundunotes.model.UserRegistration;
 
 @Repository
 public class UserServiceRepository {
-	private Logger logger = Logger.getLogger(this.getClass());
-
+     @Autowired
 	private EntityManager entityManager;
 
-	@Autowired
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+
 
 	@Autowired
 	private BCrypt bCryptEncoder;

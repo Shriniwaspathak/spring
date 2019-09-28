@@ -28,7 +28,7 @@ import com.bridgelab.fundunotes.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	Logger logger = Logger.getLogger(this.getClass());
+
 	@Autowired
 	UserService userService;
 
@@ -41,9 +41,9 @@ public class UserController {
 	@PostMapping("/add")
 	public ResponseEntity<ErrorResponse> saveToDatabase(@RequestBody UserDto userDetails) throws MessagingException {
 		if (userService.saveToDatabase(userDetails)>0)
-			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
+			return new ResponseEntity<ErrorResponse>(new ErrorResponse(HttpStatus.OK.value(), "Done"), HttpStatus.OK);
 		else
-			return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
+			return new ResponseEntity<ErrorResponse>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "not verified"),
 					HttpStatus.BAD_REQUEST);
 	}
 

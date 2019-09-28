@@ -50,6 +50,7 @@ public class NoteServiceImpl implements NoteService {
 	@Override
 	public int noteUpdatation(String token, NoteDto noteDto) {
 		Integer result = tokens.parseToken(token);
+		System.out.println(tokens.parseToken(token));
 		Note note = modelmapper.map(noteDto, Note.class);
 		return noteDao.updateNoteInDatabase(result);
 	}

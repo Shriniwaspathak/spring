@@ -24,7 +24,8 @@ public class NoteServiceRepositoty {
 	public boolean deleteNoteFromDatabase(Integer noteId) {
 		Session session = entitymanager.unwrap(Session.class);
 		String hql = "from Note where noteId=:noteId";
-		Query query = session.createQuery(" delete from Note where noteId='" + noteId + "'");
+		Query query = session.createQuery(" delete from Note where noteId=:noteId");
+		query.setParameter("noteId",noteId);
 		return (query.executeUpdate() > 0) ? true : false;
 
 	}
@@ -38,7 +39,7 @@ public class NoteServiceRepositoty {
 	@Transactional
 	public int updateNoteInDatabase(Integer id) {
 		Session session = entitymanager.unwrap(Session.class);
-		String query = "UPDATE Note Set Id=:id";
+		String query = "UPDATE Note Set title=:title";
 		Query query1 = session.createQuery(query);
 		query1.executeUpdate();
 		return 1;

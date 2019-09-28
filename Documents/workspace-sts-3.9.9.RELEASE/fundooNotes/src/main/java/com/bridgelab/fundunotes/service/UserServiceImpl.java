@@ -57,13 +57,10 @@ public class UserServiceImpl implements UserService {
 		String password = userDetails.getPassword();
 		UserRegistration register = modelmapper.map(userDetails, UserRegistration.class);
 		String url = "http://localhost:8080/user/verify/";
-		register.setMobileno(userDetails.getMobileNo());
 		int check = userdao.setTodatabase(register);
 		if (check > 0) {
 			UserRegistration userinfo = userdao.getid(userDetails.getEmail());
-
 			String token = tokens.generateToken(userinfo.getUserid());
-			System.out.println(userinfo.getUserid());
 			userDetails.setPassword(hashpassword(password));
 			sendEmail(url, token);
 			return 1;
