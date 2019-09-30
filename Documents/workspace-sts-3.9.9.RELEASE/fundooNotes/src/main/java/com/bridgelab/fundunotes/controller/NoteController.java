@@ -30,7 +30,6 @@ public class NoteController {
 
 	@PostMapping("/createNote")
 	public ResponseEntity<ErrorResponse> createNote(@RequestBody NoteDto noteDto,@RequestHeader String token) {
-		System.out.println(token);
 			if(noteService.noteCreation(noteDto, token)>0) {
 			return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "success"), HttpStatus.OK);
 		}else

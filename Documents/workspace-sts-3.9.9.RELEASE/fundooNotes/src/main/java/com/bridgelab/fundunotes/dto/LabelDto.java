@@ -1,0 +1,8 @@
+package com.bridgelab.fundunotes.dto;
+
+import lombok.Data;
+
+@Data
+public class LabelDto {
+	private String labelname;
+}

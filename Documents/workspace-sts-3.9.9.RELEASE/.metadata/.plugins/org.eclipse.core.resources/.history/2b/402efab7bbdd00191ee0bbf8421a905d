@@ -1,6 +1,0 @@
-package com.bridgelab.project.config;
-
-@Configuration
-public class Configuration {
-      
-}

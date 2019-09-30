@@ -1,0 +1,5 @@
+package com.bridgelab.fundunotes.controller;
+
+public class LabelController {
+
+}

@@ -1,0 +1,23 @@
+package com.bridgelab.fundunotes.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="label")
+public class Label {
+	@Id
+	private int labelId;
+	@Column(name="labelname")
+	private String labelname;
+	@Column(name="UserId")
+	private int userId;
+	@Column(name="noteId")
+	private int noteId;
+
+}

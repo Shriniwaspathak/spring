@@ -1,0 +1,31 @@
+package com.bridgelab.fundunotes.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bridgelab.fundunotes.dto.LabelDto;
+import com.bridgelab.fundunotes.repository.LabelRepository;
+import com.bridgelab.fundunotes.util.TokenGeneration;
+@Service
+public class LabelServiceImpl implements LabelService{
+	@Autowired
+	LabelRepository labeldao;
+	@Autowired
+	TokenGeneration tokens;
+    
+	@Override
+	public int labelCreation(LabelDto labeldto, String token) {
+	 int result=tokens.parseToken(token);
+	 labeldto.setLabelname("labelname");
+	 return labeldao.saveLabel(labeldto);
+	 
+	}
+
+	@Override
+	public boolean labelDeteletion(int labelId) {
+		
+			return (labeldao.deleteLabelFromDatabase(labelId)) ? true : false;
+
+	}
+
+}

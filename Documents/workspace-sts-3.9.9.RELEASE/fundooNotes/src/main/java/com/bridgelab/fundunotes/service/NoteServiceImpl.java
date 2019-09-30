@@ -26,10 +26,7 @@ public class NoteServiceImpl implements NoteService {
 
 	@Override
 	public int noteCreation(NoteDto noteDto, String token) {
-		System.out.println("inside service");
-		System.out.println(token);
 		int id=tokens.parseToken(token);
-		System.out.println(id);
 		UserRegistration user=serviceimpl.findbyId(id);
 		Note note = modelmapper.map(noteDto, Note.class);
 		note.setCreatedtime(LocalDateTime.now());

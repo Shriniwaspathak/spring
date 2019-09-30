@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int saveToDatabase(UserDto userDetails) throws MessagingException {
 		String password = userDetails.getPassword();
+		String mobileno=userDetails.getMobileNo();
 		UserRegistration register = modelmapper.map(userDetails, UserRegistration.class);
 		String url = "http://localhost:8080/user/verify/";
 		int check = userdao.setTodatabase(register);
@@ -113,8 +114,7 @@ public class UserServiceImpl implements UserService {
 		MimeMessage message = emailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
 		helper.setTo("rishuparasar5@gmail.com");
-
-		helper.setSubject("hiii");
+		helper.setSubject("Token");
 		helper.setText(url + generatedToken);
 		emailSender.send(message);
 	}

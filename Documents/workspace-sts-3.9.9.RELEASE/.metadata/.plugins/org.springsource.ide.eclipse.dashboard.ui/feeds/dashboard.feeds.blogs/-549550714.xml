@@ -5,7 +5,43 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2019-09-28T12:48:00Z</updated>
+  <updated>2019-09-30T11:06:00Z</updated>
+  <entry>
+    <title>Spring Framework 5.2 goes GA</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/09/30/spring-framework-5-2-goes-ga" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2019-09-30:3812</id>
+    <updated>2019-09-30T11:06:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;
+&lt;p&gt;On behalf of the Spring Framework team and many recent contributors, it is my pleasure to announce that Spring Framework 5.2 is generally available from &lt;a href="https://repo.spring.io"&gt;repo.spring.io&lt;/a&gt; as well as Maven Central! Check out our recently updated docs&amp;hellip;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-framework/wiki/What's-New-in-Spring-Framework-5.x#whats-new-in-version-52"&gt;What&amp;rsquo;s New&lt;/a&gt; in Spring Framework 5.2&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-5.x#upgrading-to-version-52"&gt;Upgrading&lt;/a&gt; to Spring Framework 5.2&lt;/li&gt;
+  &lt;li&gt;Our revised &lt;a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/"&gt;reference documentation&lt;/a&gt; with side by side examples for Java as well Kotlin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Spring Framework 5.2 requires JDK 8 or higher and specifically supports &lt;a href="http://openjdk.java.net/projects/jdk/11/"&gt;JDK 11&lt;/a&gt; as the current long-term support branch as well as &lt;a href="http://openjdk.java.net/projects/jdk/13/"&gt;JDK 13&lt;/a&gt; as the latest OpenJDK release. It comes with many performance improvements (affecting startup time as well as peak performance) and further steps taken towards &lt;a href="https://github.com/spring-projects/spring-framework/wiki/GraalVM-native-image-support"&gt;GraalVM native image support&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This release deeply integrates with Kotlin 1.3 and provides first-class support for &lt;a href="https://docs.spring.io/spring/docs/5.2.0.RELEASE/spring-framework-reference/languages.html#coroutines"&gt;Kotlin coroutines&lt;/a&gt; on top of Spring WebFlux. Furthermore, it comes with reactive messaging integration for the &lt;a href="http://rsocket.io/"&gt;RSocket&lt;/a&gt; protocol as well as reactive transaction management for &lt;a href="https://r2dbc.io/"&gt;R2DBC&lt;/a&gt;, MongoDB and Neo4j (with datastore integration provided by Spring Data&amp;rsquo;s modules).&lt;/p&gt;
+&lt;p&gt;As of the upcoming Spring Boot 2.2 RC1 release, you&amp;rsquo;ll be able to consume Spring Framework 5.2 GA through &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;! We hope you&amp;rsquo;ll enjoy it :-)&lt;/p&gt;
+&lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring REST Docs 2.0.4.RELEASE</title>
+    <link rel="alternate" href="https://spring.io/blog/2019/09/30/spring-rest-docs-2-0-4-release" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2019-09-30:3811</id>
+    <updated>2019-09-30T10:33:08Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the community and everyone who has contributed, it&amp;rsquo;s my pleasure to announce that &lt;a href="https://spring.io/projects/spring-restdocs"&gt;Spring REST Docs&lt;/a&gt; 2.0.4.RELEASE is available from Maven Central, JCenter, and our &lt;a href="https://repo.spring.io/release"&gt;release repository&lt;/a&gt;. Thank you to everyone who contributed to this release by reporting bugs and opening pull requests.&lt;/p&gt;
+&lt;p&gt;This maintenance release includes a &lt;a href="https://github.com/spring-projects/spring-restdocs/releases/tag/v2.0.4.RELEASE"&gt;small number of fixes and documentation improvements&lt;/a&gt;. It is a recommend upgrade for all Spring REST Docs 2.x users. &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-restdocs"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-restdocs/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-restdocs/docs/2.0.4.RELEASE"&gt;Documentation&lt;/a&gt; | &lt;a href="https://twitter.com/springrestdocs"&gt;Twitter&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-restdocs"&gt;Gitter&lt;/a&gt; | &lt;a href="https://stackoverflow.com/tags/spring-restdocs"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Framework 5.1.10 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2019/09/28/spring-framework-5-1-10-available-now" />
@@ -964,190 +1000,6 @@ Spring Vault 2.2 M1 is going to be picked up by Spring Cloud Vault 2.2 M3 for yo
   &lt;li&gt;Spring Data Elasticsearch 3.2 RC3 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-elasticsearch/3.2.0.RC3"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/3.2.0.RC3/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/3.2.0.RC3/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/elasticsearch/docs/3.2.0.RC3/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Spring Data Couchbase 3.2 RC3 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-couchbase/3.2.0.RC3"&gt;Artifacts&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/3.2.0.RC3/api"&gt;Javadoc&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/3.2.0.RC3/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="https://docs.spring.io/spring-data/couchbase/docs/3.2.0.RC3/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.2.0.RC1 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/09/06/spring-security-5-2-0-rc1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Eleftheria Stein-Kousathana</name>
-    </author>
-    <id>tag:spring.io,2019-09-03:3784</id>
-    <updated>2019-09-06T13:50:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I’m pleased to announce the release of
-Spring Security 5.2.0.RC1! You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.2.0.RC1"&gt;release notes&lt;/a&gt; and the highlights below:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="rsocket"&gt;&lt;a class="anchor" href="#rsocket"&gt;&lt;/a&gt;RSocket&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7360-add-rsocket-support"&gt;&lt;a class="anchor" href="#gh-7360-add-rsocket-support"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7360"&gt;gh-7360&lt;/a&gt; - Add RSocket Support&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="saml"&gt;&lt;a class="anchor" href="#saml"&gt;&lt;/a&gt;SAML&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-6019-add-saml-service-provider-support"&gt;&lt;a class="anchor" href="#gh-6019-add-saml-service-provider-support"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/6019"&gt;gh-6019&lt;/a&gt; - Add SAML Service Provider Support&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="oauth-2-0"&gt;&lt;a class="anchor" href="#oauth-2-0"&gt;&lt;/a&gt;OAuth 2.0&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect3"&gt;
-&lt;h4 id="resource-server"&gt;&lt;a class="anchor" href="#resource-server"&gt;&lt;/a&gt;Resource server&lt;/h4&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7101-jwtgrantedauthoritiesconverter-allows-configuring-the-authority-prefix"&gt;&lt;a class="anchor" href="#gh-7101-jwtgrantedauthoritiesconverter-allows-configuring-the-authority-prefix"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7101"&gt;gh-7101&lt;/a&gt; - JwtGrantedAuthoritiesConverter allows configuring the authority prefix&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7100-jwtgrantedauthoritiesconverter-allows-configuring-the-authorities-claim-name"&gt;&lt;a class="anchor" href="#gh-7100-jwtgrantedauthoritiesconverter-allows-configuring-the-authorities-claim-name"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7100"&gt;gh-7100&lt;/a&gt; - JwtGrantedAuthoritiesConverter allows configuring the authorities claim name&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7345-opaque-token-introspector-returns-an-authenticated-principal"&gt;&lt;a class="anchor" href="#gh-7345-opaque-token-introspector-returns-an-authenticated-principal"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7345"&gt;gh-7345&lt;/a&gt; - Opaque Token Introspector returns an Authenticated Principal&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7346-add-adapter-to-translate-jwt-to-bearertokenauthentication"&gt;&lt;a class="anchor" href="#gh-7346-add-adapter-to-translate-jwt-to-bearertokenauthentication"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7346"&gt;gh-7346&lt;/a&gt; - Add Adapter to Translate Jwt to BearerTokenAuthentication&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-5334-and-gh-7284-resource-server-supports-webclient-bearer-token-propagation"&gt;&lt;a class="anchor" href="#gh-5334-and-gh-7284-resource-server-supports-webclient-bearer-token-propagation"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/5334"&gt;gh-5334&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-security/issues/7284"&gt;gh-7284&lt;/a&gt; - Resource Server supports WebClient Bearer Token propagation&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect3"&gt;
-&lt;h4 id="client"&gt;&lt;a class="anchor" href="#client"&gt;&lt;/a&gt;Client&lt;/h4&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7228-prevent-null-value-in-context-if-subscribe-was-invoked-outside-of-web-context"&gt;&lt;a class="anchor" href="#gh-7228-prevent-null-value-in-context-if-subscribe-was-invoked-outside-of-web-context"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7228"&gt;gh-7228&lt;/a&gt; - Prevent null value in Context if subscribe was invoked outside of Web Context&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7114-allow-configurable-clock-in-oauth2authorizedclientprovider-implementations"&gt;&lt;a class="anchor" href="#gh-7114-allow-configurable-clock-in-oauth2authorizedclientprovider-implementations"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7114"&gt;gh-7114&lt;/a&gt; - Allow configurable Clock in OAuth2AuthorizedClientProvider implementations&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7293-fix-webclient-memory-leaks"&gt;&lt;a class="anchor" href="#gh-7293-fix-webclient-memory-leaks"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7293"&gt;gh-7293&lt;/a&gt; - Fix WebClient Memory Leaks&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7222-allow-setting-securitycontextrepository-for-reactive-oauth2-login"&gt;&lt;a class="anchor" href="#gh-7222-allow-setting-securitycontextrepository-for-reactive-oauth2-login"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7222"&gt;gh-7222&lt;/a&gt; - Allow setting securityContextRepository for reactive OAuth2 login&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7051-allow-setting-authenticationfailurehandler-for-reactive-oauth2-login"&gt;&lt;a class="anchor" href="#gh-7051-allow-setting-authenticationfailurehandler-for-reactive-oauth2-login"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7051"&gt;gh-7051&lt;/a&gt; - Allow setting authenticationFailureHandler for reactive OAuth2 login&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7232-oauth2loginconfigurer-discovers-oauth2userservice-beans"&gt;&lt;a class="anchor" href="#gh-7232-oauth2loginconfigurer-discovers-oauth2userservice-beans"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7232"&gt;gh-7232&lt;/a&gt; - OAuth2LoginConfigurer discovers OAuth2UserService beans&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7339-defaultoauth2userservice-and-oidcuserservice-extract-authorities-from-scopes"&gt;&lt;a class="anchor" href="#gh-7339-defaultoauth2userservice-and-oidcuserservice-extract-authorities-from-scopes"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7339"&gt;gh-7339&lt;/a&gt; - DefaultOAuth2UserService and OidcUserService extract authorities from scopes&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7122-oauth2authorizedclientmanager-works-outside-of-a-request"&gt;&lt;a class="anchor" href="#gh-7122-oauth2authorizedclientmanager-works-outside-of-a-request"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7122"&gt;gh-7122&lt;/a&gt; - OAuth2AuthorizedClientManager works outside of a request&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-6003-support-resource-owner-password-credentials-grant"&gt;&lt;a class="anchor" href="#gh-6003-support-resource-owner-password-credentials-grant"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/6003"&gt;gh-6003&lt;/a&gt; - Support Resource Owner Password Credentials grant&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect3"&gt;
-&lt;h4 id="jose"&gt;&lt;a class="anchor" href="#jose"&gt;&lt;/a&gt;JOSE&lt;/h4&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-6883-jwt-decoding-supports-multiple-algorithms"&gt;&lt;a class="anchor" href="#gh-6883-jwt-decoding-supports-multiple-algorithms"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/6883"&gt;gh-6883&lt;/a&gt; - JWT decoding supports multiple algorithms&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7290-nimbusjwtdecoderjwksupport-supports-applicationjwk-setjson-accept-header"&gt;&lt;a class="anchor" href="#gh-7290-nimbusjwtdecoderjwksupport-supports-applicationjwk-setjson-accept-header"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7290"&gt;gh-7290&lt;/a&gt; - NimbusJwtDecoderJwkSupport supports "application/jwk-set+json" Accept header&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="core"&gt;&lt;a class="anchor" href="#core"&gt;&lt;/a&gt;Core&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7154-performance-enhancement-replace-internal-stream-usage-with-for-loops"&gt;&lt;a class="anchor" href="#gh-7154-performance-enhancement-replace-internal-stream-usage-with-for-loops"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7154"&gt;gh-7154&lt;/a&gt; - Performance enhancement: Replace internal Stream usage with for loops&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7155-performance-enhancement-remove-internal-optional-usage-in-favor-of-null-checks"&gt;&lt;a class="anchor" href="#gh-7155-performance-enhancement-remove-internal-optional-usage-in-favor-of-null-checks"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7155"&gt;gh-7155&lt;/a&gt; - Performance enhancement: Remove internal Optional usage in favor of null checks&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-5354-add-argon2passwordencoder"&gt;&lt;a class="anchor" href="#gh-5354-add-argon2passwordencoder"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/5354"&gt;gh-5354&lt;/a&gt; - Add Argon2PasswordEncoder&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7287-add-catalan-localization-messages"&gt;&lt;a class="anchor" href="#gh-7287-add-catalan-localization-messages"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7287"&gt;gh-7287&lt;/a&gt; - Add Catalan localization messages&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="web"&gt;&lt;a class="anchor" href="#web"&gt;&lt;/a&gt;Web&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7249-authentication-mechanisms-default-their-serversecuritycontextrepository"&gt;&lt;a class="anchor" href="#gh-7249-authentication-mechanisms-default-their-serversecuritycontextrepository"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7249"&gt;gh-7249&lt;/a&gt; - Authentication mechanisms default their ServerSecurityContextRepository&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7166-expire-multiple-sessions-if-they-exceed-maximum-number-allowed"&gt;&lt;a class="anchor" href="#gh-7166-expire-multiple-sessions-if-they-exceed-maximum-number-allowed"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7166"&gt;gh-7166&lt;/a&gt; - Expire multiple sessions if they exceed maximum number allowed&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7060-ignore-multipart-requests-in-session-request-cache-matcher"&gt;&lt;a class="anchor" href="#gh-7060-ignore-multipart-requests-in-session-request-cache-matcher"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7060"&gt;gh-7060&lt;/a&gt; - Ignore multipart requests in session request cache matcher&lt;/h5&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="ldap"&gt;&lt;a class="anchor" href="#ldap"&gt;&lt;/a&gt;LDAP&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="sect4"&gt;
-&lt;h5 id="gh-7236-expose-getport-in-apachedscontainer"&gt;&lt;a class="anchor" href="#gh-7236-expose-getport-in-apachedscontainer"&gt;&lt;/a&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/7236"&gt;gh-7236&lt;/a&gt; - Expose getPort in ApacheDsContainer&lt;/h5&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; |
-&lt;a href="https://docs.spring.io/spring-security/site/docs/5.2.0.RC1/reference/htmlsingle/"&gt;Reference&lt;/a&gt;
-| &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Cloud Data Flow 2.3.0.M1 and 2.2.1 GA Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2019/09/06/spring-cloud-data-flow-2-3-0-m1-and-2-2-1-ga-released" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Ilayaperumal Gopinathan</name>
-    </author>
-    <id>tag:spring.io,2019-09-04:3785</id>
-    <updated>2019-09-06T10:42:42Z</updated>
-    <content type="html">&lt;p&gt;The &lt;a href="https://cloud.spring.io/spring-cloud-dataflow/"&gt;Spring Cloud Data Flow&lt;/a&gt; team is pleased to announce the milestone release 2.3.0.M1 and the release of 2.2.1 GA.&lt;/p&gt;
-&lt;p&gt;Along with the bug fixes and enhancements, the first milestone of 2.3.0 also has the following new features: &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Improved Prometheus monitoring based on &lt;a href="https://github.com/micrometer-metrics/prometheus-rsocket-proxy"&gt;Prometheus RSocket&lt;/a&gt;. It uses persistent bidirectional (RSocket) connections between the Stream/Task applications and a Prometheus RSocket Proxy instance. When Prometheus scrapes the proxy instance, and the proxy, in turn, uses the connections to pull metrics from the applications.&lt;/li&gt;
-  &lt;li&gt;Ability to pass OAuth Access Token as command-line arguments for &lt;a href="https://docs.spring.io/spring-cloud-dataflow/docs/2.3.0.M1/reference/htmlsingle/#_configuration_options"&gt;Composed Tasks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Users can now specify a description of the stream when creating it. Thanks to &lt;code&gt;Daniel Serleg&lt;/code&gt; for the contribution!&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Scheduler SPI is now merged into Spring Cloud Deployer. We’ll deprecate the explicit &lt;code&gt;spring-cloud-scheduler&lt;/code&gt; project and its implementations on Cloud Foundry, K8s and have them available as part of &lt;code&gt;spring-cloud-deployer&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can see the full list of &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/releases/tag/v2.3.0.M1"&gt;changes&lt;/a&gt; on Github.&lt;/p&gt;
-&lt;p&gt;The release 2.2.1 GA is mostly the bug fixes on 2.2.x base and you can see the &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/releases/tag/v2.2.1.RELEASE"&gt;changes&lt;/a&gt; on Github.&lt;/p&gt;&lt;h2&gt;&lt;a href="#stay-in-touch-hellip" class="anchor" name="stay-in-touch-hellip"&gt;&lt;/a&gt;Stay in touch&amp;hellip;&lt;/h2&gt;
-&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt; or via &lt;a href="https://gitter.im/spring-cloud/spring-cloud-dataflow"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

@@ -1,0 +1,9 @@
+package com.bridgelab.fundunotes.service;
+
+import com.bridgelab.fundunotes.dto.LabelDto;
+
+public interface LabelService {
+	public int labelCreation(LabelDto labeldto,String token);
+	public boolean labelDeteletion(Integer labelId);
+
+}
