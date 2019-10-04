@@ -8,8 +8,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bridgelab.fundunotes.dto.LabelDto;
 import com.bridgelab.fundunotes.model.Label;
+import com.bridgelab.fundunotes.model.Note;
 
 @Repository
 public class LabelRepository {
@@ -18,9 +18,7 @@ public class LabelRepository {
 
 	@Transactional
 	public void saveLabel(Label newlabel) {
-		
 		Session session = entitymanager.unwrap(Session.class);
-	
 		session.save(newlabel);
 
 	}
@@ -33,6 +31,12 @@ public class LabelRepository {
 		query.setParameter("labelId", labelId);
 		return (query.executeUpdate() > 0) ? true : false;
 
+	}
+
+	@Transactional
+	public void saveToNoteLabel(Note note) {
+		Session session = entitymanager.unwrap(Session.class);
+		session.save(note);
 	}
 
 }

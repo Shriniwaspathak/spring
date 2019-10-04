@@ -47,12 +47,5 @@ public class NoteController {
 					HttpStatus.BAD_REQUEST);
 	}
 
-	@PutMapping("/updateNote/{id}")
-	public ResponseEntity<ErrorResponse> updateNote(@PathVariable("id") @RequestHeader String token,
-			@RequestBody NoteDto noteDto) {
-		noteService.noteUpdatation(token, noteDto);
-		return new ResponseEntity<>(new ErrorResponse(HttpStatus.OK.value(), "done"), HttpStatus.OK);
-
-	}
 
 }

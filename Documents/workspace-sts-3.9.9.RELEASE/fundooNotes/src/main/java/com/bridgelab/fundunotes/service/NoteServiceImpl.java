@@ -26,8 +26,8 @@ public class NoteServiceImpl implements NoteService {
 
 	@Override
 	public int noteCreation(NoteDto noteDto, String token) {
-		int id=tokens.parseToken(token);
-		UserRegistration user=serviceimpl.findbyId(id);
+		int id = tokens.parseToken(token);
+		UserRegistration user = serviceimpl.findbyId(id);
 		Note note = modelmapper.map(noteDto, Note.class);
 		note.setCreatedtime(LocalDateTime.now());
 		note.setUpdatedtime(LocalDateTime.now());
@@ -42,14 +42,6 @@ public class NoteServiceImpl implements NoteService {
 	public boolean noteDeletion(Integer noteId) {
 		return (noteDao.deleteNoteFromDatabase(noteId)) ? true : false;
 
-	}
-
-	@Override
-	public int noteUpdatation(String token, NoteDto noteDto) {
-		Integer result = tokens.parseToken(token);
-		System.out.println(tokens.parseToken(token));
-		Note note = modelmapper.map(noteDto, Note.class);
-		return noteDao.updateNoteInDatabase(result);
 	}
 
 }

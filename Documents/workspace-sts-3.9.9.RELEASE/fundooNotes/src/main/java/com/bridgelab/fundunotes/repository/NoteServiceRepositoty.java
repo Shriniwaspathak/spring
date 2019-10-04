@@ -12,9 +12,9 @@ import com.bridgelab.fundunotes.model.Note;
 
 @Repository
 public class NoteServiceRepositoty {
-	
+
 	private EntityManager entitymanager;
-	
+
 	@Autowired
 	public void setEntitymanager(EntityManager entitymanager) {
 		this.entitymanager = entitymanager;
@@ -25,7 +25,7 @@ public class NoteServiceRepositoty {
 		Session session = entitymanager.unwrap(Session.class);
 		String hql = "from Note where noteId=:noteId";
 		Query query = session.createQuery(" delete from Note where noteId=:noteId");
-		query.setParameter("noteId",noteId);
+		query.setParameter("noteId", noteId);
 		return (query.executeUpdate() > 0) ? true : false;
 
 	}
@@ -34,15 +34,16 @@ public class NoteServiceRepositoty {
 	public void noteCreateInDatabase(Note note) {
 		Session session = entitymanager.unwrap(Session.class);
 		session.save(note);
-}
-
-	@Transactional
-	public int updateNoteInDatabase(Integer id) {
-		Session session = entitymanager.unwrap(Session.class);
-		String query = "UPDATE Note Set title=:title";
-		Query query1 = session.createQuery(query);
-		query1.executeUpdate();
-		return 1;
-
 	}
+	@Transactional
+	public Note getNoteId(int noteId) {
+		Session session=entitymanager.unwrap(Session.class);
+		Query query= session.createQuery("from Note where noteId=:noteId");
+		query.setParameter("noteId", noteId);
+		Note note=(Note) query.uniqueResult();
+		return note;
+		
+		
+	}
+     
 }
